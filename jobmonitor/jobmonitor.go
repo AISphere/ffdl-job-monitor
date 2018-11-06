@@ -34,11 +34,11 @@ import (
 	"github.com/AISphere/ffdl-lcm/lcmconfig"
 
 	"github.com/AISphere/ffdl-commons/logger"
-	"github.com/AISphere/ffdl-commons/service"
+	"github.com/AISphere/ffdl-lcm/service/grpc"
 
 	"k8s.io/client-go/kubernetes"
 
-	lcmClient "github.com/AISphere/ffdl-commons/service/client"
+	lcmClient "github.com/AISphere/ffdl-lcm/service/grpc/client"
 	"github.com/AISphere/ffdl-trainer/client"
 	"github.com/AISphere/ffdl-trainer/trainer/grpc_trainer_v2"
 )
