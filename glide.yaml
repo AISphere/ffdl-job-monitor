@@ -38,6 +38,14 @@ import:
   version: v1.2.0
 - package: github.com/sirupsen/logrus
   version: v1.1.1
+- package: github.com/spf13/cobra
+  version: ^0.0.3
+  subpackages:
+  - cobra/cobra
+- package: github.com/spf13/pflag
+  version: 583c0c0531f06d5278b7d917446061adc344b5cd
+- package: github.com/spf13/viper
+  version: ^1.2.1
 - package: google.golang.org/grpc
   version: ^1.16.0
   subpackages:

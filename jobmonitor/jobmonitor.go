@@ -37,9 +37,8 @@ import (
 
 
 	"k8s.io/client-go/kubernetes"
-	grpcLCM "github.com/AISphere/ffdl-lcm/service/grpc_training_data_v1"
 
-	lcmClient "github.com/AISphere/ffdl-lcm/service/grpc/client"
+	lcmClient "github.com/AISphere/ffdl-lcm/service/client"
 	service "github.com/AISphere/ffdl-lcm/service"
 	"github.com/AISphere/ffdl-trainer/client"
 	"github.com/AISphere/ffdl-trainer/trainer/grpc_trainer_v2"
