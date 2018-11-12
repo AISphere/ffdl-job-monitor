@@ -14,21 +14,20 @@
 # limitations under the License.
 #
 
+#
+# Build and deploy file for the ffdl-job-monitor
+#
 
-FROM ubuntu:16.04
+DOCKER_IMG_NAME = jobmonitor
 
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install --yes ca-certificates curl ldnsutils
+include ../ffdl-commons/ffdl-commons.mk
 
-ADD vendor/github.com/AISphere/ffdl-commons/grpc-health-checker/bin/grpc-health-checker /usr/local/bin/
-RUN chmod +x /usr/local/bin/grpc-health-checker
+protoc: protoc-trainer protoc-lcm      ## Build gRPC .proto files into vendor directory
 
-ADD bin/main /
-ADD certs/* /etc/ssl/dlaas/
-RUN chmod 755 /main
+install-deps: install-deps-base protoc ## Remove vendor directory, rebuild dependencies
 
-# assign "random" non-root user id
-USER 6342627
+docker-build: docker-build-base        ## Install dependencies if vendor folder is missing, build go code, build docker image.
 
-ENTRYPOINT ["/main"]
+docker-push: docker-push-base          ## Push docker image to a docker hub
 
+clean: clean-base                      ## clean all build artifacts

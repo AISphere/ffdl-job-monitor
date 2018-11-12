@@ -24,7 +24,7 @@ import (
 	"github.com/AISphere/ffdl-commons/logger"
 	"github.com/AISphere/ffdl-commons/metricsmon"
 	"github.com/AISphere/ffdl-commons/util"
-	jobM "github.com/AISphere/ffdl-job-monitor"
+	jobM "github.com/AISphere/ffdl-job-monitor/jobmonitor"
 
 	"os"
 	"time"
