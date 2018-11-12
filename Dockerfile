@@ -24,7 +24,7 @@ ADD vendor/github.com/AISphere/ffdl-commons/grpc-health-checker/bin/grpc-health-
 RUN chmod +x /usr/local/bin/grpc-health-checker
 
 ADD bin/main /
-#ADD certs/* /etc/ssl/dlaas/
+ADD certs/* /etc/ssl/dlaas/
 RUN chmod 755 /main
 
 # assign "random" non-root user id
