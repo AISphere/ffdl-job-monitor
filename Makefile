@@ -18,7 +18,7 @@
 # Build and deploy file for the ffdl-job-monitor
 #
 
-DOCKER_IMG_NAME = jobmonitor
+DOCKER_IMG_NAME = dlaas-jobmonitor
 
 include ../ffdl-commons/ffdl-commons.mk
 
