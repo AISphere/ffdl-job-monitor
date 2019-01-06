@@ -35,11 +35,10 @@ import (
 
 	"github.com/AISphere/ffdl-commons/logger"
 
-
 	"k8s.io/client-go/kubernetes"
 
-	lcmClient "github.com/AISphere/ffdl-lcm/service/client"
 	service "github.com/AISphere/ffdl-lcm/service"
+	lcmClient "github.com/AISphere/ffdl-lcm/service/client"
 	"github.com/AISphere/ffdl-trainer/client"
 	"github.com/AISphere/ffdl-trainer/trainer/grpc_trainer_v2"
 )
@@ -256,7 +255,7 @@ func (jm *JobMonitor) processUpdateJobStatus(currStatus string, logr *logger.Loc
 
 	//if native distribution and status of the entire job is complete then kill the deployed job
 	if status == grpc_trainer_v2.Status_COMPLETED || status == grpc_trainer_v2.Status_FAILED || status == grpc_trainer_v2.Status_HALTED {
-		logr.Infof("(processUpdateJobStatus) overall status of the job was set up as %s and native distribution status was %s", currStatus, jm.UseNativeDistribution)
+		logr.Infof("(processUpdateJobStatus) overall status of the job was set up as %v and native distribution status was %v", currStatus, jm.UseNativeDistribution)
 		if jm.UseNativeDistribution {
 			logr.Debugf("(processUpdateJobStatus) No need to wait for all learners to terminate. Already updated status. Killing job %s", jm.TrainingID)
 			err := KillDeployedJob(jm.TrainingID, jm.UserID, jm.JobName, logr)
